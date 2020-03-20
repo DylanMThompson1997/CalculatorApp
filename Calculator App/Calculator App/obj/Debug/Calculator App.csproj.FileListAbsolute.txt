@@ -1,0 +1,20 @@
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\bin\Debug\Calculator App.exe.config
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\bin\Debug\Calculator App.exe
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\bin\Debug\Calculator App.pdb
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\obj\Debug\Calculator App.csprojAssemblyReference.cache
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\obj\Debug\Calculator_App.Form1.resources
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\obj\Debug\Calculator_App.Properties.Resources.resources
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\obj\Debug\Calculator_App.UserControl1.resources
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\obj\Debug\Calculator App.csproj.GenerateResource.cache
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\obj\Debug\Calculator App.exe
+C:\Users\Dylan\source\repos\Calculator App\Calculator App\obj\Debug\Calculator App.pdb
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\bin\Debug\Calculator App.exe.config
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\bin\Debug\Calculator App.exe
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\bin\Debug\Calculator App.pdb
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\obj\Debug\Calculator_App.Form1.resources
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\obj\Debug\Calculator_App.Properties.Resources.resources
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\obj\Debug\Calculator_App.UserControl1.resources
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\obj\Debug\Calculator App.csproj.GenerateResource.cache
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\obj\Debug\Calculator App.exe
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\obj\Debug\Calculator App.pdb
+C:\Users\Dylan\Documents\Data\Programs\Calculator App\Calculator App\obj\Debug\Calculator App.csprojAssemblyReference.cache
