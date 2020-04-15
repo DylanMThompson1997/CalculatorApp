@@ -10,103 +10,46 @@ using System.Windows.Forms;
 
 namespace Calculator_App
 {
-    public partial class Form1 : Form
+    public partial class Calc : Form
     {
-
-        public Form1()
+        public Calc()
         {
             InitializeComponent();
+            KeyDown += Window_KeyDown;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            label1.Text = "";
+            screen.Text = "";
+            history.Text = "";
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
+        private void one_button_Click(object sender, EventArgs e) { screen.Text += "1"; }		// click the '1' button
+        private void two_button_Click(object sender, EventArgs e) { screen.Text += "2"; }		// click the '2' button
+        private void three_button_Click(object sender, EventArgs e) { screen.Text += "3"; }		// click the '3' button
+        private void four_button_Click(object sender, EventArgs e) { screen.Text += "4"; }		// click the '4' button
+        private void five_button_Click(object sender, EventArgs e) { screen.Text += "5"; }		// click the '5' button
+        private void six_button_Click(object sender, EventArgs e) { screen.Text += "6"; }		// click the '6' button
+        private void seven_button_Click(object sender, EventArgs e) { screen.Text += "7"; }		// click the '7' button
+        private void eight_button_Click(object sender, EventArgs e) { screen.Text += "8"; }		// click the '8' button
+        private void nine_button_Click(object sender, EventArgs e) { screen.Text += "9"; }		// click the '9' button
+        private void zero_button_Click(object sender, EventArgs e) { screen.Text += "0"; }		// click the '0' button
+        private void point_button_Click(object sender, EventArgs e) { screen.Text += "."; }		// click the '.' button
 
-        private void button1_Click(object sender, EventArgs e)
+        private void equals_button_Click(object sender, EventArgs e)                     		// click the '=' button
         {
-            // 7
-            label1.Text += "7";
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            // 8
-            label1.Text += "8";
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // 9
-            label1.Text += "9";
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            // 4
-            label1.Text += "4";
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            // 5
-            label1.Text += "5";
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            // 6
-            label1.Text += "6";
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            // 1
-            label1.Text += "1";
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            // 2
-            label1.Text += "2";
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            // 3
-            label1.Text += "3";
-        }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            // 0
-            label1.Text += "0";
-        }
-
-        private void button16_Click(object sender, EventArgs e)
-        {
-            // .
-            label1.Text += ".";
-        }
-
-        private void button19_Click(object sender, EventArgs e)
-        {
-            // =
             try
-            {
-                // add a line that says if a(b) or (a)b, make it a*(b) or (a)*b
-                label1.Text = Math.Round(Evaluate(label1.Text), 10).ToString();
-            } catch
-            {
-                label1.Text = "Error";
+            {           // add a line that says if a(b) or (a)b, make it a*(b) or (a)*b
+                history.Text += screen.Text + "=";
+                screen.Text = Math.Round(Evaluate(screen.Text), 10).ToString();
+                history.Text += screen.Text + "\n\n";
+            } catch {
+                screen.Text = "Error";
+                history.Text += screen.Text + "\n\n";
             }
         }
 
-        static double Evaluate(string expression)
+        static double Evaluate(string expression)                                               // The brains of the operation
         {
             var loDataTable = new DataTable();
             var loDataColumn = new DataColumn("Eval", typeof(double), expression);
@@ -115,66 +58,54 @@ namespace Calculator_App
             return (double)(loDataTable.Rows[0]["Eval"]);
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            // plus
-            label1.Text += "+";
-        }
+        private void add_button_Click(object sender, EventArgs e) { screen.Text += "+"; } 		        // click the '+' button
+        private void minus_button_Click(object sender, EventArgs e) { screen.Text += "-"; }		        // click the '-' button
+        private void multiply_button_Click(object sender, EventArgs e) { screen.Text += "*"; }		    // click the '*' button
+        private void divide_button_Click(object sender, EventArgs e) { screen.Text += "/"; }		    // click the '/' button
+        private void clear_button_Click(object sender, EventArgs e) { screen.Text = ""; }		        // click the 'C' button
+        private void openbrac_button_Click(object sender, EventArgs e) { screen.Text += "("; }		    // click the '(' button
+        private void closebrac_button_Click(object sender, EventArgs e) { screen.Text += ")"; }		    // click the ')' button
+        private void toThePower_button_Click(object sender, EventArgs e) { screen.Text += "**"; }		// click the '^' button
+        private void sqrt_button_Click(object sender, EventArgs e) { screen.Text += "Math.sqrt("; }		// click the 'sqrt' button
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            // minus
-            label1.Text += "-";
-        }
 
-        private void button18_Click(object sender, EventArgs e)
-        {
-            // times
-            label1.Text += "*";
-        }
 
-        private void button17_Click(object sender, EventArgs e)
+        private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            // divided
-            label1.Text += "/";
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            // clear
-            label1.Text = "";
-        }
-
-        private void MyForm_KeyDown (object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.D7)
-            {
-                label1.Text += "7";
+            if (e.Shift && e.KeyCode == Keys.Oemplus) { screen.Text += "+"; }       // key combo for '+'
+            else if (e.KeyCode == Keys.OemMinus) { screen.Text += "-"; }            // key combo for '-'
+            else if (e.Shift && e.KeyCode == Keys.D8) { screen.Text += "*"; }       // key combo for '*'
+            else if (e.KeyCode == Keys.OemQuestion) { screen.Text += "/"; }         // key combo for '/'
+            else if (e.Shift && e.KeyCode == Keys.D9) { screen.Text += "("; }       // key combo for '('
+            else if (e.Shift && e.KeyCode == Keys.D0) { screen.Text += ")"; }       // key combo for ')'
+            else if (e.KeyCode == Keys.OemPeriod) { screen.Text += "."; }           // key combo for '.'
+            else if (e.KeyCode == Keys.C) { screen.Text = ""; }                     // key combo for 'C'
+            else if (e.KeyCode == Keys.Back) {                                      // when backspace is pressed
+                screen.Text = screen.Text.Substring(0, screen.Text.Length - 1); }
+            else if (e.KeyCode == Keys.Oemplus) {                                     // key combo for '='
+                try
+                {
+                    // add a line that says if a(b) or (a)b, make it a*(b) or (a)*b
+                    history.Text += screen.Text + "=";
+                    screen.Text = Math.Round(Evaluate(screen.Text), 10).ToString();
+                    history.Text += screen.Text + "\n\n";
+                }
+                catch
+                {
+                    screen.Text = "Error";
+                    history.Text += screen.Text + "\n\n";
+                }
             }
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            // ^
-            label1.Text += "**";
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-            // )
-            label1.Text += ")";
-        }
-
-        private void button20_Click(object sender, EventArgs e)
-        {
-            // (
-            label1.Text += "(";
-        }
-
-        private void button21_Click(object sender, EventArgs e)
-        {
-            // square root
-            label1.Text += "Math.sqrt(";
+            else if (e.KeyCode == Keys.D0) { screen.Text += "0"; }      // 0 key
+            else if (e.KeyCode == Keys.D1) { screen.Text += "1"; }      // 1 key
+            else if (e.KeyCode == Keys.D2) { screen.Text += "2"; }      // 2 key
+            else if (e.KeyCode == Keys.D3) { screen.Text += "3"; }      // 3 key
+            else if (e.KeyCode == Keys.D4) { screen.Text += "4"; }      // 4 key
+            else if (e.KeyCode == Keys.D5) { screen.Text += "5"; }      // 5 key
+            else if (e.KeyCode == Keys.D6) { screen.Text += "6"; }      // 6 key
+            else if (e.KeyCode == Keys.D7) { screen.Text += "7"; }      // 7 key
+            else if (e.KeyCode == Keys.D8) { screen.Text += "8"; }      // 8 key
+            else if (e.KeyCode == Keys.D9) { screen.Text += "9"; }      // 9 key
         }
     }
 }
